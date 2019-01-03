@@ -44,6 +44,9 @@ int deathzoneX4=-200;
 int deathzoneY4=340;
 int deathzoneW4=200;
 int speed4=15;
+//Instructions
+int instructionX=20;
+int instructionY=460;
 
 
 
@@ -61,7 +64,7 @@ void setup() {
 
 void draw() {
   background(0, 255, 0);
-  
+
   //drawing the lane array
   for (int i=0; i<n_lanes; i+=1) {
     laneRow[i].displayLane();
@@ -104,7 +107,7 @@ void draw() {
   if (deathzoneX4>=width+deathzoneW4) {
     deathzoneX4=-200;
   }
-  
+
   //displaying the death screen
   if (dead==true) {
     fill(0, 0, 255);
@@ -120,6 +123,12 @@ void draw() {
     fill(0);
     textAlign(CENTER, CENTER);
     text("YOU HAVE WON! PRESS 'R' TO RESTART", width/2, height/2);
+  }
+  //instructions
+  if(dead==false && win ==false){
+    textAlign(CORNER, CORNER);
+  fill(0);
+  text("Use the arrow keys to move, avoid the RED boxes, get to the top to win", instructionX, instructionY);
   }
 }
 
